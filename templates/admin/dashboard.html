@@ -1,0 +1,49 @@
+{% extends 'base.html' %}
+
+{% block title %}后台管理中心{% endblock %}
+
+{% block content %}
+<div class="row">
+    <!-- 左侧菜单栏 -->
+    <div class="col-md-3 mb-4">
+        <div class="list-group shadow-sm">
+            <div class="list-group-item bg-light fw-bold">系统菜单</div>
+            <a href="{{ url_for('admin.dashboard') }}" class="list-group-item list-group-item-action active">
+                📊 控制台首页
+            </a>
+            <a href="{{ url_for('admin.list_posts') }}" class="list-group-item list-group-item-action">
+                📝 文章管理列表
+            </a>
+            <a href="{{ url_for('admin.add_post') }}" class="list-group-item list-group-item-action">
+                ✍️ 发布新文章
+            </a>
+        </div>
+    </div>
+    
+    <!-- 右侧内容 -->
+    <div class="col-md-9">
+        <h3 class="mb-4 pb-2 border-bottom">欢迎回来，管理员</h3>
+        
+        <div class="row g-4">
+            <div class="col-md-6">
+                <div class="card text-white bg-primary stat-card shadow h-100">
+                    <div class="card-body text-center d-flex flex-column justify-content-center py-5">
+                        <h5 class="card-title text-white-50">已发布文章</h5>
+                        <p class="display-2 fw-bold mb-0">{{ post_count }}</p>
+                        <small class="text-white-50">篇</small>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="card text-white bg-success stat-card shadow h-100">
+                    <div class="card-body text-center d-flex flex-column justify-content-center py-5">
+                        <h5 class="card-title text-white-50">全站总阅读量</h5>
+                        <p class="display-2 fw-bold mb-0">{{ total_views }}</p>
+                        <small class="text-white-50">次</small>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

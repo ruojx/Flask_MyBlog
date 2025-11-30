@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+
+{% block title %}{{ post.title }}{% endblock %}
+
+{% block content %}
+<div class="row justify-content-center">
+    <div class="col-md-10">
+        <!-- 面包屑导航 -->
+        <nav aria-label="breadcrumb">
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href="{{ url_for('blog.index') }}">首页</a></li>
+                <li class="breadcrumb-item active" aria-current="page">文章详情</li>
+            </ol>
+        </nav>
+
+        <h1 class="mb-3 display-5 fw-bold">{{ post.title }}</h1>
+        <div class="text-muted mb-4 pb-3 border-bottom">
+            <span class="me-3">📅 发布于：{{ post.created_at.strftime('%Y-%m-%d %H:%M') }}</span>
+            <span>👁️ 累计阅读：{{ post.views }}</span>
+        </div>
+        
+        <!-- 文章正文区域 -->
+        < class="post-detail-content">
+            {{ post.content | replace('\n', '<br>') | safe }}
+        </div>
+        
+        <div class="mt-5 text-center">
+            <a href="{{ url_for('blog.index') }}" class="btn btn-secondary px-4">返回列表</a>
+        </div>
+    </div>
+</div>
+{% endblock %}
