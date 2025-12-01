@@ -35,7 +35,7 @@ def create_app():
         return app
     
 
-# 注意：这里要顶格，不要有空格
+
 if __name__ == '__main__':
     app = create_app()
     app.run(debug=True, port=5000)
